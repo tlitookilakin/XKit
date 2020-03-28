@@ -40,11 +40,10 @@ XKit.extensions.video_downloader = new Object({
 	addButtons: function() {
 		setTimeout(function() {
 			var vids = document.querySelectorAll(".crt-video:not(.xvd-processed)");
-			var vid;
-			for (vid of vids) {
+			for (var vid of vids) {
 				vid.classList.add("xvd-processed");
 				var sauce = vid.getElementsByTagName("source");
-				if (sauce.length > 0){
+				if (sauce.length > 0) {
 					vid.appendChild(XKit.extensions.video_downloader.makeButton(sauce[0].getAttribute("src")));
 				}
 			}
