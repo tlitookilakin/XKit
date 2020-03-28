@@ -26,12 +26,12 @@ XKit.extensions.video_downloader = new Object({
 	
 	makeButton: function(url) {
 		var el = document.createElement("a");
-		var fname = url.split("/").pop();
+		var filename = url.split("/").pop();
 		el.classList.add("xvd-button");
 		el.setAttribute("href", url);
 		el.setAttribute("target", "_blank");
-		el.setAttribute("download", fname);
-		el.appendChild(document.createTextNode("Download this video"));
+		el.setAttribute("download", filename);
+		el.appendChild(new Text("Download this video"));
 		return el;
 	},
 	
@@ -42,7 +42,9 @@ XKit.extensions.video_downloader = new Object({
 				vid.classList.add("xvd-processed");
 				var sauce = vid.getElementsByTagName("source");
 				if (sauce.length > 0) {
-					vid.appendChild(XKit.extensions.video_downloader.makeButton(sauce[0].getAttribute("src")));
+					var src = sauce[0].getAttribute("src");
+					var button = XKit.extensions.video_downloader.makeButton(src);
+					vid.appendChild(button);
 				}
 			}
 		}, 500);
