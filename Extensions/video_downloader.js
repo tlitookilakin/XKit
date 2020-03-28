@@ -11,7 +11,7 @@ XKit.extensions.video_downloader = new Object({
 
 	run: function() {
 		this.running = true;
-		if (!XKit.interface.where().dashboard || XKit.page.react) {
+		if (!XKit.interface.is_tumblr_page() || XKit.page.react) {
 			return;
 		}
 		XKit.tools.init_css("video_downloader");
