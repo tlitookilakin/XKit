@@ -32,7 +32,7 @@ XKit.extensions.video_downloader = new Object({
 		el.classList.add("xvd-button");
 		el.setAttribute("href", url);
 		el.setAttribute("target", "_blank");
-		el.setAttribute("download",fname);
+		el.setAttribute("download", fname);
 		el.appendChild(document.createTextNode("Download this video"));
 		return el;
 	},
@@ -40,12 +40,12 @@ XKit.extensions.video_downloader = new Object({
 	addButtons: function() {
 		setTimeout(function() {
 			var vids = document.querySelectorAll(".crt-video:not(.xvd-processed)");
-			var v;
-			for (v of vids) {
-				v.classList.add("xvd-processed");
-				var sauce = v.getElementsByTagName("source");
+			var vid;
+			for (vid of vids) {
+				vid.classList.add("xvd-processed");
+				var sauce = vid.getElementsByTagName("source");
 				if (sauce.length > 0){
-					v.appendChild(XKit.extensions.video_downloader.makeButton(sauce[0].getAttribute("src")));
+					vid.appendChild(XKit.extensions.video_downloader.makeButton(sauce[0].getAttribute("src")));
 				}
 			}
 		}, 500);
