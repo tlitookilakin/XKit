@@ -11,13 +11,12 @@ XKit.extensions.video_downloader = new Object({
 
 	run: function() {
 		this.running = true;
-		if (XKit.interface.where().dashboard && !XKit.page.react) {
-			XKit.tools.init_css("video_downloader");
-			XKit.extensions.video_downloader.addButtons();
-			XKit.post_listener.add("video_downloader", XKit.extensions.video_downloader.addButtons);
-		} else {
+		if (!XKit.interface.where().dashboard || XKit.page.react) {
 			return;
 		}
+		XKit.tools.init_css("video_downloader");
+		XKit.extensions.video_downloader.addButtons();
+		XKit.post_listener.add("video_downloader", XKit.extensions.video_downloader.addButtons);
 	},
 
 	destroy: function() {
