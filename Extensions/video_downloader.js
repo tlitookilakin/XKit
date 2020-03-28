@@ -12,10 +12,10 @@ XKit.extensions.video_downloader = new Object({
 
 	run: function() {
 		this.running = true;
-		if(XKit.interface.where().dashboard){
+		if (XKit.interface.where().dashboard) {
 			XKit.tools.init_css("video_downloader");
 			XKit.extensions.video_downloader.addButtons();
-			XKit.post_listener.add("video_downloader",XKit.extensions.video_downloader.addButtons);
+			XKit.post_listener.add("video_downloader", XKit.extensions.video_downloader.addButtons);
 		} else {
 			return;
 		}
@@ -30,24 +30,24 @@ XKit.extensions.video_downloader = new Object({
 		var el = document.createElement("a");
 		var fname = url.split("/").pop();
 		el.classList.add("xvd-button");
-		el.setAttribute("href",url);
-		el.setAttribute("target","_blank");
+		el.setAttribute("href", url);
+		el.setAttribute("target", "_blank");
 		el.setAttribute("download",fname);
 		el.appendChild(document.createTextNode("Download this video"));
 		return el;
 	},
 	
 	addButtons: function() {
-		setTimeout(function(){
+		setTimeout(function() {
 			var vids = document.querySelectorAll(".crt-video:not(.xvd-processed)");
 			var v;
-			for(v of vids){
+			for (v of vids) {
 				v.classList.add("xvd-processed");
 				var sauce = v.getElementsByTagName("source");
-				if(sauce.length>0){
+				if (sauce.length > 0){
 					v.appendChild(XKit.extensions.video_downloader.makeButton(sauce[0].getAttribute("src")));
 				}
 			}
-		},500);
+		}, 500);
 	}
 });
