@@ -1,18 +1,17 @@
 //* TITLE Video Downloader **//
 //* VERSION 1.0.0 **//
 //* DESCRIPTION	adds a download button to the video player **//
-//* DETAILS Adds a simple download button to all videos using the fancy player. Does not support 3rd-party players or the native player. **//
+//* DETAILS Adds a simple download button to all videos using the fancy player. Does not support 3rd-party players or the native player. Disabled on beta dash (now supported natively)**//
 //* DEVELOPER tlitookilakin **//
 //* FRAME false **//
 //* BETA false **//
-
 XKit.extensions.video_downloader = new Object({
 
 	running: false,
 
 	run: function() {
 		this.running = true;
-		if (XKit.interface.where().dashboard) {
+		if (XKit.interface.where().dashboard && !XKit.page.react) {
 			XKit.tools.init_css("video_downloader");
 			XKit.extensions.video_downloader.addButtons();
 			XKit.post_listener.add("video_downloader", XKit.extensions.video_downloader.addButtons);
