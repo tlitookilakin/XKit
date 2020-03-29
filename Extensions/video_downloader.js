@@ -31,7 +31,7 @@ XKit.extensions.video_downloader = new Object({
 		el.setAttribute("href", url);
 		el.setAttribute("target", "_blank");
 		el.setAttribute("download", filename);
-		el.appendChild(new Text("Download this video"));
+		el.innerText = "Download this video";
 		return el;
 	},
 	
