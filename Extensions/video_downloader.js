@@ -1,7 +1,7 @@
 //* TITLE Video Downloader **//
 //* VERSION 1.0.0 **//
 //* DESCRIPTION Adds a download button to the video player **//
-//* DETAILS Adds a simple download button to all videos using the fancy player. Does not support 3rd-party players or the native player. Disabled on beta dash (now supported natively)**//
+//* DETAILS Adds a simple download button to all videos using the fancy player. Does not support 3rd-party players or the native player. Disabled on beta dash (now supported natively) **//
 //* DEVELOPER tlitookilakin **//
 //* FRAME false **//
 //* BETA false **//
