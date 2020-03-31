@@ -47,6 +47,6 @@ XKit.extensions.video_downloader = new Object({
 					vid.appendChild(button);
 				}
 			}
-		}, 500);
+		}, 1500);
 	}
 });
